@@ -18,5 +18,8 @@ export default {
     },
     getPoem(name, title) {
         return apiClient.get(`/author,title/${name};${title}`)
+    },
+    search(input, search) {
+        return apiClient.get(`/${input}/${search}`)
     }
 }
