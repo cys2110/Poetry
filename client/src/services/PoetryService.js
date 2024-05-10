@@ -10,10 +10,13 @@ const apiClient = axios.create({
 })
 
 export default {
-    getAllAuthors(){
+    getAllAuthors() {
         return apiClient.get('/author')
     },
-    getPoemsByAuthor(name){
+    getPoemsByAuthor(name) {
         return apiClient.get(`/author/${name}/title`)
+    },
+    getPoem(name, title) {
+        return apiClient.get(`/author,title/${name};${title}`)
     }
 }
