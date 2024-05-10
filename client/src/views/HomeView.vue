@@ -13,15 +13,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="mt-32 w-[60%] mx-auto">
-    <div class="text-center text-3xl">Authors</div>
+  <main class="mt-28 mx-auto w-[70%] flex-1">
+    <div class="text-center text-3xl text-violet-500">Authors</div>
     <div class="text-center mt-5">
       <div v-if="authorList.length > 0" v-for="author in authorList" :key="author">
-        <RouterLink :to="{name: 'author', params: {name: author}}">{{ author }}</RouterLink>
+        <RouterLink :to="{name: 'author', params: {name: author}}" class="text-violet-200 no-underline hover:underline">{{ author }}</RouterLink>
       </div>
-      <div v-else>
-        Loading ...
-      </div>
+      <div v-else class="text-xl">Loading ...</div>
     </div>
   </main>
 </template>

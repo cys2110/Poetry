@@ -1,6 +1,7 @@
 <script setup>
 import PoetryService from '@/services/PoetryService';
 import { onMounted, ref } from 'vue';
+import { RouterLink } from 'vue-router';
 
 const props = defineProps(['name', 'title'])
 const poem = ref(null)
@@ -13,10 +14,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <main class="mt-32 w-[75%] mx-auto mb-5">
+    <main class="mt-28 w-[75%] mx-auto mb-5 flex-1">
         <div v-if="poem">
-            <div class="text-2xl text-center">{{ poem.title }}</div>
-            <div class="text-lg text-center">{{ poem.author }}</div>
+            <div class="text-2xl text-center text-violet-500 mb-1">{{ poem.title }}</div>
+            <div class="text-lg text-center mb-5">
+                <RouterLink :to="{name: 'author'}" class="text-violet-200 no-underline hover:underline">{{ poem.author }}</RouterLink>
+            </div>
             <div class="text-center">
                 <div v-for="line in poem.lines" :key="line">{{ line }}</div>
             </div>

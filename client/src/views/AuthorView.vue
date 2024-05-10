@@ -14,11 +14,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <main class="mt-32 w-[60%] mx-auto">
-        <div class="text-center text-2xl">{{ name }}</div>
+    <main class="mt-28 w-[60%] mx-auto flex-1">
+        <div class="text-center text-2xl text-violet-500">{{ name }}</div>
         <div class="text-center mt-3">
             <div v-if="poems.length > 0" v-for="poem in poems" :key="poem.title">
-                <RouterLink :to="{name: 'poem', params: {title: poem.title}}">{{ poem.title }}</RouterLink>
+                <RouterLink :to="{name: 'poem', params: {title: poem.title}}" class="text-violet-200 no-underline hover:underline">{{ poem.title }}</RouterLink>
             </div>
             <div v-else>Loading...</div>
         </div>
